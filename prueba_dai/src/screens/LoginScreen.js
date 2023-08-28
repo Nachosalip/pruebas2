@@ -4,7 +4,7 @@ import {SafeAreaView, TextInput} from 'react-native';
 import React, { useState } from 'react';
 
 
- const LoginScreen =({navigation}) => {
+ const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     return (
@@ -20,7 +20,7 @@ import React, { useState } from 'react';
         <TextInput
           style={styles.TextInput}
           placeholder="Email."
-          onChangeText={(email) => setEmail(email)}
+          onChangeText={(password) => setPassword(password)}
         /> 
       </View>
       </SafeAreaView>
@@ -49,4 +49,4 @@ import React, { useState } from 'react';
         marginLeft: 20,
       }
   });
-  export default{LoginScreen}
+  export {LoginScreen}

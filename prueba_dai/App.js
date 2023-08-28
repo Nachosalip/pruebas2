@@ -1,9 +1,10 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator } from '@react-navigation/stack'
 import {SafeAreaView} from 'react-native';
-import LoginScreen from './src/screens/LoginScreen';
+import { LoginScreen } from './src/screens/LoginScreen';
 import Screen01 from './src/screens/Screen01';
 import Screen02 from './src/screens/Screen02';
 import Screen03 from './src/screens/Screen03';
@@ -36,7 +37,7 @@ export default function App() {
         options={{title:'Titulo ... Screen03'}}
         />
       </Stack.Navigator>
-      <Menu navigation={navigation}/>
+      <Menu/>
     </NavigationContainer>
   );
 }
