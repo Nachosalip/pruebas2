@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {SafeAreaView, TextInput, Button, Image} from 'react-native';
 import React, { useState } from 'react';
-
+import BotonReutilizable from '../components/buttonReutilizable';
 
  const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
@@ -38,9 +38,16 @@ import React, { useState } from 'react';
           onChangeText={(password) => setPassword(password)}
         /> 
       </View>
-      <Button        
+      {/*<Button        
       title="Presioname"        
-      onPress={() =>verificarIngreso()} />
+    onPress={() =>verificarIngreso()} />*/}
+      <BotonReutilizable
+      
+       onPress={verificarIngreso}          
+       style={styles.loginDiferente}          
+       texto="Presioname"
+      />
+
       </SafeAreaView>
     );
   }
@@ -48,12 +55,12 @@ import React, { useState } from 'react';
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#4B4B4B',
       alignItems: 'center',
       justifyContent: 'center',
     },
     inputView: {
-       backgroundColor: "#FFC0CB",
+       backgroundColor: "#4b9197",
        borderRadius: 30,
        width: "70%",
        height: 45,
@@ -65,6 +72,15 @@ import React, { useState } from 'react';
         flex: 1,
         padding: 10,
         marginLeft: 20,
+      },
+      loginDiferente: {
+        width: "75%",
+        backgroundColor: "#D4AF37",
+        paddingVertical: 12,
+        marginTop: 15,
+        marginBottom: 15,
+      
+    
       }
   });
   export {LoginScreen}
