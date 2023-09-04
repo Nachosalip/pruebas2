@@ -6,25 +6,64 @@ import {SafeAreaView} from 'react-native';
 export default function Menu({navigation}) {
     
     return (
-      <SafeAreaView style={styles.container}>
-        <TouchableOpacity onPress={()=>navigation.navigate('Screen01')}>
-            <Text>1</Text>
+      <View style={styles.container}>
+        
+        <TouchableOpacity style={styles.menuItem01} onPress={()=>navigation.navigate('Screen01')}>
+            <Text style={styles.menuItem01}>1</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>navigation.navigate('Screen02')}>
-            <Text>2</Text>
+        <TouchableOpacity style={styles.menuItem02} onPress={()=>navigation.navigate('Screen02')}>
+            <Text style={styles.menuItem02}>2</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>navigation.navigate('Screen03')}>
-            <Text>3</Text>
+        <TouchableOpacity style={styles.menuItem03} onPress={()=>navigation.navigate('Screen03')}>
+            <Text style={styles.menuItem03}>3</Text>
         </TouchableOpacity>
-      </SafeAreaView>
+      </View>
     );
   }
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'space-around',
       alignItems: 'center',
-      justifyContent: 'center',
+      height: 50,
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      backgroundColor: 'f2f2f2' 
+
     },
+    
+    menuItem01:{
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: '#fff',
+      backgroundColor:'22b14c',
+      flex:1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlignVertical:'center',
+    },
+    menuItem02:{
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: '#fff',
+      backgroundColor:'ed1c24',
+      flex:1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlignVertical:'center',
+    },
+    menuItem03:{
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: '#fff',
+      backgroundColor:'3f48cc',
+      flex:1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlignVertical:'center',
+    },
+
   });

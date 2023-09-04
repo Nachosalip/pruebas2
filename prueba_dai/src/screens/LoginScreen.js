@@ -1,14 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import {SafeAreaView, TextInput} from 'react-native';
+import {SafeAreaView, TextInput, Button, Image} from 'react-native';
 import React, { useState } from 'react';
 
 
  const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const verificarIngreso = ()=>{
+      setEmail(email.toLowerCase());
+      setPassword(password.toLowerCase());
+      console.log(email);
+      console.log(password);
+      if(email=='nacho' && password=='salip'){
+      navigation.navigate('Screen01');
+      }
+      else{
+        alert('o el mail o la contraseña estan mal (mail: nacho, contraseña: salip)');
+      }
+    }
     return (
       <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+        <Image source = {require("../../assets/rueda.png")}/> 
+      </View>
         <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
@@ -19,10 +34,13 @@ import React, { useState } from 'react';
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Email."
+          placeholder="contraseña."
           onChangeText={(password) => setPassword(password)}
         /> 
       </View>
+      <Button        
+      title="Presioname"        
+      onPress={() =>verificarIngreso()} />
       </SafeAreaView>
     );
   }
