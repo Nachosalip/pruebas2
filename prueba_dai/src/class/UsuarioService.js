@@ -9,7 +9,8 @@ class UsuarioService {
   static login = async (userName, password) => {
     try {    
         await AsyncStorage.setItem(userName, password);  
-    } catch(e) {    
+    } catch(e) {   
+         
         // error  
     }
     let isValid = false;
