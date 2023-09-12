@@ -9,13 +9,19 @@ import {Screen01 } from './src/screens/Screen01';
 import {Screen02} from './src/screens/Screen02';
 import {Screen03} from './src/screens/Screen03';
 import Menu from './src/components/Menu';
+import {SpashScreen} from './src/screens/SplashScreen';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='LoginScreen'>
+      <Stack.Navigator initialRouteName='SplashScreen'>
+        <Stack.Screen
+        name="SplashScreen"
+        component={SpashScreen}
+        options={{title: 'titulo... SplashScreen', headerShown: false}}
+        />
         <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
