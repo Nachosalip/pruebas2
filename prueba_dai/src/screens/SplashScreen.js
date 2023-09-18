@@ -1,13 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import {
-  SafeAreaView,
-  TextInput,
-  Button,
-  Image,
-  ActivityIndicator,
-} from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import {SafeAreaView, TextInput, Button, Image, ActivityIndicator, View, StyleSheet, Text } from "react-native";
+
 import BotonReutilizable from "../components/buttonReutilizable";
 
 useEffect(() => {
