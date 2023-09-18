@@ -2,19 +2,31 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from 'react';
 import {SafeAreaView, TextInput, Button, Image, ActivityIndicator, View, StyleSheet, Text } from "react-native";
 import BotonReutilizable from "../components/buttonReutilizable";
+import UsuarioService from "../class/UsuarioService";
 
-useEffect(() => {
-  constonLoad = async () => {
-    awaitnewPromise((resolve) => setTimeout(resolve, 5000));
-  };
-  onLoad();
-  //InvocoelmétodoasincrónicoonLoadluegodedefinirsucuerpo.
-  return () => {
-    //
-  };
-}, []);
 
 const SpashScreen = ({ navigation }) => {
+  useEffect(() => {
+    let usuarioCargado;
+    const onLoad = async () => {
+      await newPromise((resolve) => setTimeout(resolve, 5000));
+    };
+    onLoad();
+    usuarioCargado = UsuarioService.automaticlogin();
+    console.log("usuario cargado", usuarioCargado)
+    if(usuarioCargado===true){
+      navigation.navigate('Screen01');
+    }
+    else{
+      navigation.navigate('LoginScreen');
+    }
+  
+    //InvocoelmétodoasincrónicoonLoadluegodedefinirsucuerpo.
+    return () => {
+      //
+    };
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
