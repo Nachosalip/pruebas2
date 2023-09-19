@@ -3,20 +3,24 @@ import { StyleSheet, Text, View } from 'react-native';
 import {SafeAreaView, TextInput, Button, Image} from 'react-native';
 import React, { useState } from 'react';
 import BotonReutilizable from '../components/buttonReutilizable';
+import UsuarioService from "../class/UsuarioService";
 
  const LoginScreen = ({navigation}) => {
+  const mail = "M";
+  const pass = "M";
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const verificarIngreso = ()=>{
+    const verificarIngreso = async ()=>{
       setEmail(email.toLowerCase());
       setPassword(password.toLowerCase());
       console.log(email);
       console.log(password);
-      if(email=='nacho' && password=='salip'){
+      if(email== mail && password== pass){
+      UsuarioService.almacenarCredenciales(email, password);
       navigation.navigate('Screen01');
       }
       else{
-        alert('o el mail o la contraseña estan mal (mail: nacho, contraseña: salip)');
+        alert(`o el mail o la contraseña estan mal (mail:${mail} contraseña:'${pass}')`);
       }
     }
     return (

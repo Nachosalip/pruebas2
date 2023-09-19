@@ -7,25 +7,30 @@ import UsuarioService from "../class/UsuarioService";
 
 const SpashScreen = ({ navigation }) => {
   useEffect(() => {
-    let usuarioCargado;
+    
     const onLoad = async () => {
       await newPromise((resolve) => setTimeout(resolve, 5000));
     };
     onLoad();
-    usuarioCargado = UsuarioService.automaticlogin();
-    console.log("usuario cargado", usuarioCargado)
-    if(usuarioCargado===true){
-      navigation.navigate('Screen01');
-    }
-    else{
-      navigation.navigate('LoginScreen');
-    }
+    verificarUsuarioCargado();
   
     //InvocoelmétodoasincrónicoonLoadluegodedefinirsucuerpo.
     return () => {
       //
     };
   }, []);
+
+  const verificarUsuarioCargado = async () => {
+    let usuarioCargado = await UsuarioService.automaticlogin();
+
+    console.log("usuario cargado", usuarioCargado);
+    if(usuarioCargado===true){
+      navigation.navigate('Screen01');
+    }
+    else{
+      navigation.navigate('LoginScreen');
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
