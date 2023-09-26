@@ -9,22 +9,21 @@ class UsuarioService {
   static login = async (userName, password) => {
     let isValid;
     
-    try {
-      
+    
+      console.log("hola");
       if (userName === "M" && password ==="M")
       {
         console.log("el username en login es:", userName);
-        almacenarCredenciales (userName, password);
-
+       // almacenarCredenciales(userName, password);
+        console.log("hola1");
         isValid= true;
       }
       else{
         console.log("el username en login(false) es:", userName, password);
         isValid = false;
       }
-    } catch (e) {
-      
-    }
+    
+    console.log(isValid, "isValid login");
     return isValid;
     
   };
@@ -46,7 +45,7 @@ class UsuarioService {
       returnValue  = true;  
     } 
     catch(e) {    
-      // error  
+      console.log("error", e); 
     }  
     return returnValue;
 

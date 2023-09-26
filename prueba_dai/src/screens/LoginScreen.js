@@ -10,9 +10,10 @@ import UsuarioService from "../class/UsuarioService";
   const pass = "M";
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    
     const verificarIngreso = async ()=>{
-      setEmail(email.toLowerCase());
-      setPassword(password.toLowerCase());
+      setEmail(email.toUpperCase());
+      setPassword(password.toUpperCase());
       console.log(email);
       console.log(password);
       if(email== mail && password== pass){
