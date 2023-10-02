@@ -4,6 +4,7 @@ import {SafeAreaView, TextInput, Button, Image} from 'react-native';
 import React, { useState, useRef } from 'react';
 import BotonReutilizable from '../components/buttonReutilizable';
 import UsuarioService from "../class/UsuarioService";
+import AlertConstantes from '../class/AlertConstantes';
 
  const LoginScreen = ({navigation}) => {
   const mail = "M";
@@ -21,7 +22,7 @@ import UsuarioService from "../class/UsuarioService";
       navigation.navigate('Screen01');
       }
       else{
-        alert(`o el mail o la contraseña estan mal (mail:${mail} contraseña:'${pass}')`);
+        alert(AlertConstantes.AlertContraseñaInvalida);
       }
     }
     const passwordRef = useRef();

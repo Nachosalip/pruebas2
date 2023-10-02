@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ToastAndroid } from 'react-native';
 import {SafeAreaView} from 'react-native';
 import Menu from '../components/Menu';
 import BotonReutilizable from '../components/buttonReutilizable';
@@ -10,7 +10,7 @@ const Screen02 = ({navigation}) => {
   const eliminarCredenciales = async ()=>{
     let seElimino = await UsuarioService.eliminarCredenciales();
     if(seElimino==true){
-      alert("Se elimino correctamente, te felicito");
+      ToastAndroid.show('Se eliminaron las credenciales', ToastAndroid.SHORT);;
     }
    }
     return (
