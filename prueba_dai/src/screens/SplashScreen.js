@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from 'react';
-import {SafeAreaView, TextInput, Button, Image, ActivityIndicator, View, StyleSheet, Text } from "react-native";
+import {SafeAreaView, TextInput, Button, Image, ActivityIndicator, View, StyleSheet, Text} from "react-native";
 import BotonReutilizable from "../components/buttonReutilizable";
 import UsuarioService from "../class/UsuarioService";
 
@@ -9,10 +9,14 @@ const SpashScreen = ({ navigation }) => {
   useEffect(() => {
     
     const onLoad = async () => {
-      await newPromise((resolve) => setTimeout(resolve, 5000));
+      
+      await new Promise(resolve => setTimeout(resolve,5000));
+      console.log("sali del setTimeOut");
+      verificarUsuarioCargado();
+
     };
     onLoad();
-    verificarUsuarioCargado();
+
   
     //InvocoelmétodoasincrónicoonLoadluegodedefinirsucuerpo.
     return () => {

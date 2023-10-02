@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {SafeAreaView, TextInput, Button, Image} from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import BotonReutilizable from '../components/buttonReutilizable';
 import UsuarioService from "../class/UsuarioService";
 
@@ -24,6 +24,8 @@ import UsuarioService from "../class/UsuarioService";
         alert(`o el mail o la contraseña estan mal (mail:${mail} contraseña:'${pass}')`);
       }
     }
+    const passwordRef = useRef();
+    
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
@@ -34,6 +36,8 @@ import UsuarioService from "../class/UsuarioService";
           style={styles.TextInput}
           placeholder="Email."
           onChangeText={(email) => setEmail(email)}
+          returnKeyType='next'
+          onSubmitEditing={()=>{passwordRef.current.focus();}}
         /> 
       </View>
       <View style={styles.inputView}>
@@ -41,6 +45,8 @@ import UsuarioService from "../class/UsuarioService";
           style={styles.TextInput}
           placeholder="contraseña."
           onChangeText={(password) => setPassword(password)}
+          ref={passwordRef} 
+          secureTextEntry
         /> 
       </View>
       {/*<Button        
